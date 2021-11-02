@@ -11,7 +11,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:3000`);
+  console.log(`Example app listening at http://localhost:3000.`);
 });
 
 app.post("/create-payment-intent/:totalPrice", async (req, res) => {
