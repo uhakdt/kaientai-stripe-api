@@ -1,0 +1,2 @@
+export const PublishKey = process.env.ENVIRONMENT === 'Development' ? process.env.PUBLISHABLE_KEY_DEV : process.env.PUBLISHABLE_KEY_PROD
+export const SecretKey = process.env.ENVIRONMENT === 'Development' ? process.env.SECRET_KEY_DEV : process.env.SECRET_KEY_PROD

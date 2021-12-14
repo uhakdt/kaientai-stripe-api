@@ -1,34 +1,12 @@
-const express = require("express");
-require("dotenv").config();
-const Stripe = require("stripe");
+import app from './app.js';
 
-const app = express();
-const port = 3000; //add your port here
-const PUBLISHABLE_KEY = process.env.PUBLISHABLE_KEY;
-const SECRET_KEY = process.env.SECRET_KEY;
+const port = process.env.PORT || 9923;
 
-//Confirm the API version from your stripe dashboard
-const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
+app.get('/', (req, res) => {
+  res.send("I am going to become the King of the Pirates. If this means I will die on the journey, so be it!")
+})
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Example app listening at http://localhost:3000.`);
-});
-
-app.post("/create-payment-intent/:totalPrice", async (req, res) => {
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: req.params.totalPrice, //lowest denomination of particular currency
-      currency: "gbp",
-      payment_method_types: ["card"], //by default
-    });
-
-    const clientSecret = paymentIntent.client_secret;
-
-    res.json({
-      clientSecret: clientSecret
-    });
-  } catch (e) {
-    console.log(e.message);
-    res.json({ error: e.message });
-  }
+app.listen(port, () => {
+  console.log("I am going to become the King of the Pirates. If this means I will die on the journey, so be it!")
+  console.log(`Listing on port ${port}`)
 });
