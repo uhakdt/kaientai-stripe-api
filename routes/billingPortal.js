@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { KaientaiApiUrl, FrontendUrl, stripe } from "../auxillary/EnvVar.js";
+import { KaientaiApiUrl, FrontendUrl, stripe } from "../auxillary/EnvVars.js";
 import axios from 'axios';
 
 const router = express.Router();
